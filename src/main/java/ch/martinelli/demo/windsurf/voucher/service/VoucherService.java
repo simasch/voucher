@@ -41,7 +41,7 @@ public class VoucherService {
     @Transactional
     public Optional<Voucher> redeemVoucher(String code, Long customerId) {
         var now = LocalDateTime.now();
-        return voucherRepository.findByUsedAtNullAndValidUntilAfterAndValidFromBeforeAndCustomerId(
+        return voucherRepository.findByUsedAtNullAndValidUntilAfterAndValidFromBeforeAndCustomer_Id(
                 now, now, customerId)
                 .stream()
                 .findFirst()
